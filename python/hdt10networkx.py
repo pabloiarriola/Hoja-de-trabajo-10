@@ -23,12 +23,12 @@ def generateGraphFromFile():
     #print listNodes
     center = nx.center(g,e=None)
     #print center
-
-    return (center, matrixPaths, listNodes,g)
+    pos=nx.spring_layout(g)
+    return (center, matrixPaths, listNodes,g,pos)
 
 
 while(True):
-    (center,matrixPaths,listNodes,g) =generateGraphFromFile()
+    (center,matrixPaths,listNodes,g,pos) =generateGraphFromFile()
         
     print "1. Ruta más corta entre dos ciudades"
     print "2. Indicar nombre de la ciudad en el centro"
@@ -88,4 +88,5 @@ while(True):
                 print "ciudad 1 no está"
     elif op==4:
         nx.draw_circular(g)
+        labels=nx.draw_networkx_labels(g,pos=nx.spring_layout(g))
         break
