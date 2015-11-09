@@ -87,5 +87,5 @@ while(True):
             else :
                 print "ciudad 1 no está"
     elif op==4:
-        nx.draw(g)
+        nx.draw_circular(g)
         break
